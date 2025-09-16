@@ -11,25 +11,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # 2️⃣ Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # 4️⃣ Run Jest tests with coverage
       - name: Run tests with coverage
         run: npm test
 
+      # 5️⃣ Upload coverage files as artifacts
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
+
+      # 6️⃣ Run SonarCloud scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v1
         with:
-          organization: debadrita08       # replace with your SonarCloud org key
-          projectKey: Debadrita08_chatbot-studybuddy    # replace with your SonarCloud project key
+          organization: debadrita08         # your SonarCloud org key
+          projectKey: Debadrita08_chatbot-studybuddy    # your SonarCloud project key
           token: ${{ secrets.SONAR_TOKEN }}
           extraProperties: |
             sonar.javascript.lcov.reportPaths=coverage/lcov.info
+

@@ -6,12 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-<<<<<<< HEAD
-  
-=======
     "lint": "next lint",
     "test" : "jest --coverage"
->>>>>>> 014995c (Initial commit with SonarCloud workflow)
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",

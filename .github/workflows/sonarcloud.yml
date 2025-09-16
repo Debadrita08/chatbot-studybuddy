@@ -38,7 +38,7 @@ jobs:
 
       # 6️⃣ Run SonarCloud scan
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-scan-action@v2
+        uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
           args: >

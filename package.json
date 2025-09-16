@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+<<<<<<< HEAD
+  
+=======
+    "lint": "next lint",
+    "test" : "jest --coverage"
+>>>>>>> 014995c (Initial commit with SonarCloud workflow)
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -19,6 +24,11 @@
   },
   "devDependencies": {
     "eslint": "^8",
+<<<<<<< HEAD
     "eslint-config-next": "14.2.5"
+=======
+    "eslint-config-next": "14.2.5",
+    "jest": "^30.1.3"
+>>>>>>> 014995c (Initial commit with SonarCloud workflow)
   }
 }

@@ -1,0 +1,35 @@
+name: SonarCloud Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests with coverage
+        run: npm test
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1
+        with:
+          organization: debadrita08       # replace with your SonarCloud org key
+          projectKey: Debadrita08_chatbot-studybuddy    # replace with your SonarCloud project key
+          token: ${{ secrets.SONAR_TOKEN }}
+          extraProperties: |
+            sonar.javascript.lcov.reportPaths=coverage/lcov.info
